@@ -1,0 +1,21 @@
+# Data files (too large for git)
+data/raw/*
+data/processed/*
+*.csv
+*.zip
+
+# Python cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# API keys
+.kaggle/
+kaggle.json
+
+# Environment
+.env
