@@ -41,7 +41,7 @@ This research contributes to:
 ## Datasets
 
 ### Primary Dataset: Chatbot Arena Human Preferences
-- **Source:** [Hugging Face - lmsys/chatbot_arena_conversations]([https://huggingface.co/datasets/lmsys/chatbot_arena_conversations](https://huggingface.co/datasets/lmarena-ai/arena-human-preference-55k))
+- **Source:** [Hugging Face - lmsys/chatbot_arena_conversations](https://huggingface.co/datasets/lmarena-ai/arena-human-preference-55k)
 - **Size:** 55,000+ real-world user conversations
 - **Models Covered:** 70+ LLMs including GPT-4, Claude 2, Llama 2, Gemini, Mistral, and others
 - **Features:** User prompts, model responses, preference votes, timestamps, metadata
