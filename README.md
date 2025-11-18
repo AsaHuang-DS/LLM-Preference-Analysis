@@ -253,10 +253,6 @@ Huang, A. (2024). LLM User Preference Analysis: A Data-Driven Study of Task-Spec
 MADS 720 Final Project. GitHub: https://github.com/AsaHuang-DS/LLM_Preference_Analysis
 ```
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - **LMSYS Organization** for maintaining the Chatbot Arena platform and dataset
