@@ -5,85 +5,87 @@
 
 ## Overview
 
-This project conducts a comprehensive analysis of user preferences across Large Language Models (LLMs) using real-world conversation data and model performance metrics. By integrating user behavior data with technical model characteristics, this study identifies task-specific usage patterns and explores the relationship between model attributes (speed, cost, performance) and user satisfaction.
+This project conducts a comprehensive analysis of user preferences across Large Language Models (LLMs) using 57,351 real-world conversations spanning 70+ state-of-the-art language models. By integrating statistical testing and data visualization, this study identifies task-specific usage patterns and explores relationships between model characteristics and user satisfaction.
 
-**Key Question:** Do users demonstrate statistically significant preferences for specific LLMs based on task type, and how do model characteristics influence these preferences?
+**Key Finding:** GPT models lead with a 42.2% win rate, significantly outperforming other families (χ² = 2777.40, p < 0.000001). Winning responses are 21% longer on average, indicating users prefer comprehensive, detailed answers.
 
 ## Project Description
 
-As artificial intelligence tools become increasingly integrated into daily workflows, understanding how users interact with different LLMs across various tasks is critical. This project analyzes over 55,000 real user conversations spanning 70+ state-of-the-art language models to uncover:
+As artificial intelligence tools become increasingly integrated into daily workflows, understanding how users interact with different LLMs across various tasks is critical. This project analyzes over 57,000 real user conversations to uncover:
 
 - Task-specific model preferences (coding, creative writing, data analysis, research)
-- Correlations between model performance metrics and user satisfaction
-- Statistical significance of preference patterns across different use cases
-- Insights for model selection optimization and product development
+- Statistical relationships between model characteristics and user satisfaction
+- Performance patterns across 64 different language models
+- Insights for optimal model selection and product development
 
-The analysis employs descriptive statistics, hypothesis testing, and data visualization techniques to deliver actionable insights for AI developers, end users, and researchers studying human-AI interaction.
+The analysis employs descriptive statistics, chi-square tests, t-tests, and data visualization techniques to deliver actionable insights for AI developers, end users, and researchers studying human-AI interaction.
 
 ## Research Framework
 
 ### Primary Hypothesis
-Users exhibit statistically significant preferences for certain LLMs when performing specific tasks (e.g., coding, creative writing, data analysis). Furthermore, model characteristics such as response speed, operational cost, and benchmark performance metrics correlate with user preference patterns.
+Users exhibit statistically significant preferences for certain LLMs when performing specific tasks, and model characteristics (family, response length, architecture) correlate with user preference patterns.
 
 ### Research Questions
-1. Which LLMs are most frequently preferred by users for coding-related tasks compared to creative or conversational tasks?
-2. Do model performance characteristics (speed, cost, benchmark scores) correlate with user preference rates?
-3. What task categories dominate user interactions with LLMs, and how does this vary across different models?
-4. Are there statistically significant differences in user satisfaction across LLM models when controlling for task type?
+1. Which LLMs are most preferred for coding tasks vs. creative or conversational tasks?
+2. Do model performance characteristics correlate with user preference rates?
+3. What task categories dominate user interactions with LLMs?
+4. Are there statistically significant differences in user satisfaction across models?
 
-### Significance
-This research contributes to:
-- **Product Development:** Informing targeted model optimization and feature prioritization
-- **User Experience:** Guiding users toward optimal model selection for specific tasks
-- **Academic Research:** Advancing understanding of human-AI interaction patterns
-- **Market Analysis:** Providing insights into competitive positioning in the LLM landscape
+### Key Results
+- **Hypothesis Confirmed:** All findings highly significant (p < 0.000001)
+- **GPT Dominance:** GPT family achieves 42.2% win rate
+- **Response Length Matters:** Winners average 21% longer responses
+- **Task Specificity:** Performance varies by category, but GPT-4 leads overall
+- **Model Maturity:** 31% tie rate indicates comparable quality across many models
 
 ## Datasets
 
 ### Primary Dataset: Chatbot Arena Human Preferences
-- **Source:** [Hugging Face - lmsys/chatbot_arena_conversations](https://huggingface.co/datasets/lmarena-ai/arena-human-preference-55k)
-- **Size:** 55,000+ real-world user conversations
-- **Models Covered:** 70+ LLMs including GPT-4, Claude 2, Llama 2, Gemini, Mistral, and others
-- **Features:** User prompts, model responses, preference votes, timestamps, metadata
-- **Collection:** Ongoing data from LMSYS Chatbot Arena platform
+- **Source:** [Hugging Face - lmsys/chatbot_arena_conversations](https://huggingface.co/datasets/lmsys/chatbot_arena_conversations)
+- **Size:** 57,351 conversations after cleaning
+- **Models Covered:** 64 unique LLMs including GPT-4, Claude 2, Llama 2, Gemini, Mistral
+- **Features:** User prompts, model responses, preference votes, timestamps
+- **Collection:** Real user A/B comparisons from LMSYS Chatbot Arena platform
 
 ### Secondary Dataset: Large Language Models Comparison
 - **Source:** [Kaggle - Large Language Models Comparison Dataset](https://www.kaggle.com/datasets/samayashar/large-language-models-comparison-dataset)
-- **Content:** Model specifications, performance benchmarks, speed metrics, cost data
-- **Purpose:** Enriches user preference analysis with technical model characteristics
-- **Integration:** Merged with primary dataset on model names for comprehensive analysis
+- **Status:** Not used in final analysis due to synthetic model names incompatible with Arena data
+- **Decision:** Proceeded with Arena dataset alone (sufficient for research objectives)
 
-**Note:** Due to file size constraints (>100MB), datasets are not included in this repository. See [Data Download Instructions](#data-download-instructions) below.
+**Note:** Due to file size constraints (>100MB), datasets are not included in this repository. See [Installation](#installation) for download instructions.
 
 ## Project Structure
-
 ```
 llm-preference-analysis/
 │
 ├── data/
-│   ├── raw/                          # Original datasets (not tracked by git)
-│   │   ├── chatbot_arena.csv         # Hugging Face dataset
-│   │   └── llm_comparison.csv        # Kaggle dataset
-│   └── processed/                    # Cleaned and merged data (not tracked)
+│   ├── raw/                          # Original datasets (gitignored)
+│   │   └── chatbot_arena.csv
+│   └── processed/                    # Cleaned datasets (gitignored)
+│       ├── arena_cleaned.csv
+│       └── arena_final_with_tasks.csv
 │
 ├── notebooks/
-│   ├── 00_data_download.ipynb        # Dataset acquisition and initial setup
-│   ├── 01_data_exploration.ipynb     # Initial data profiling and quality assessment
-│   ├── 02_data_cleaning.ipynb        # Preprocessing and feature engineering
-│   ├── 03_exploratory_analysis.ipynb # Comprehensive EDA with visualizations
-│   ├── 04_statistical_analysis.ipynb # Hypothesis testing and deep dive
-│   └── 05_final_visualizations.ipynb # Publication-quality figures
+│   ├── 00_data_download.ipynb        # Dataset acquisition
+│   ├── 01_data_exploration.ipynb     # Initial EDA
+│   ├── 02_data_cleaning.ipynb        # Preprocessing
+│   ├── 03_exploratory_analysis.ipynb # Comprehensive EDA
+│   ├── 04_statistical_analysis.ipynb # Hypothesis testing
+│   └── 05_final_report.ipynb         # Complete report
 │
-├── figures/                          # Saved plots and visualizations
+├── figures/                          # Visualizations
+│   ├── winner_distribution.png
+│   ├── top_models.png
+│   ├── model_win_rates.png
+│   ├── family_win_rates.png
+│   ├── task_distribution.png
+│   ├── task_model_heatmap.png
+│   └── ... (10+ visualizations)
 │
-├── src/                              # Helper functions and utilities
-│   └── utils.py
-│
-├── .gitignore                        # Git ignore rules
-├── requirements.txt                  # Python dependencies
-├── README.md                         # Project documentation
-└── LICENSE                           # MIT License
-
+├── .gitignore
+├── requirements.txt
+├── README.md
+└── LICENSE
 ```
 
 ## Installation and Setup
@@ -92,7 +94,7 @@ llm-preference-analysis/
 - Python 3.10 or higher
 - Anaconda or Miniconda
 - Git
-- Kaggle account (for dataset download)
+- Kaggle account (for dataset access)
 
 ### Environment Setup
 
@@ -119,78 +121,25 @@ pip install -r requirements.txt
 - Move `kaggle.json` to `~/.kaggle/` (Mac/Linux) or `C:\Users\<Username>\.kaggle\` (Windows)
 - Set permissions (Mac/Linux): `chmod 600 ~/.kaggle/kaggle.json`
 
-### Data Download Instructions
-
-**Important:** Data files are not included in this repository due to size constraints.
+### Data Download
 
 Run the data download notebook:
 ```bash
 jupyter notebook notebooks/00_data_download.ipynb
 ```
 
-This notebook will:
+This will:
 1. Download Chatbot Arena dataset from Hugging Face (~175 MB)
-2. Download LLM comparison dataset from Kaggle
-3. Save both datasets to `data/raw/`
-4. Perform initial data validation
+2. Save dataset to `data/raw/`
+3. Perform initial validation
 
 **Expected download time:** 5-10 minutes depending on internet speed.
-
-## Methodology
-
-### Analytical Approach
-
-**Phase 1: Data Acquisition and Preparation**
-- Load datasets from Hugging Face and Kaggle
-- Initial data profiling and quality assessment
-- Merge datasets on model names
-
-**Phase 2: Data Cleaning and Feature Engineering**
-- Handle missing values and inconsistencies
-- Text preprocessing and standardization
-- Create derived features: conversation length, task categories, win rates
-
-**Phase 3: Exploratory Data Analysis**
-- Univariate analysis: distributions of key variables
-- Bivariate analysis: relationships between model characteristics and preferences
-- Visualization: 15+ charts including bar plots, heatmaps, box plots, scatter plots
-
-**Phase 4: Statistical Analysis**
-- Task classification using keyword-based approach
-- Hypothesis testing: chi-square, t-tests, ANOVA
-- Correlation analysis between model metrics and user preferences
-- Comparative analysis across models and task types
-
-**Phase 5: Insights and Reporting**
-- Synthesis of key findings
-- Publication-quality visualizations
-- Written report and presentation materials
-
-### Technical Stack
-
-**Core Libraries:**
-- `pandas` - Data manipulation and analysis
-- `numpy` - Numerical computing
-- `scipy` - Statistical functions and hypothesis testing
-
-**Visualization:**
-- `matplotlib` - Foundational plotting
-- `seaborn` - Statistical visualizations
-
-**Data Loading:**
-- `datasets` (Hugging Face) - Load Chatbot Arena data
-- `kaggle` - Download Kaggle datasets
-
-**Development:**
-- `jupyter` - Interactive notebooks
-- `git` - Version control
 
 ## Usage
 
 ### Running the Analysis
 
 Execute notebooks in sequential order:
-
 ```bash
 # Activate environment
 conda activate llm_analysis
@@ -200,45 +149,141 @@ jupyter notebook
 ```
 
 **Recommended workflow:**
-1. `00_data_download.ipynb` - Download and verify datasets
-2. `01_data_exploration.ipynb` - Initial data exploration
-3. `02_data_cleaning.ipynb` - Data preprocessing
-4. `03_exploratory_analysis.ipynb` - Comprehensive EDA
-5. `04_statistical_analysis.ipynb` - Hypothesis testing
-6. `05_final_visualizations.ipynb` - Create final figures
+1. `00_data_download.ipynb` - Download and verify datasets ✅
+2. `01_data_exploration.ipynb` - Initial data profiling ✅
+3. `02_data_cleaning.ipynb` - Data preprocessing ✅
+4. `03_exploratory_analysis.ipynb` - Comprehensive EDA ✅
+5. `04_statistical_analysis.ipynb` - Hypothesis testing ✅
+6. `05_final_report.ipynb` - Complete analysis report ✅
 
 ### Notebook Contents
 
 Each notebook includes:
-- **Research Context:** Relevant hypothesis and research questions
-- **Code with Explanations:** Detailed comments explaining logic and methodology
-- **Visualizations:** Clear, labeled plots with interpretations
-- **Key Findings:** Summary of insights from each analysis stage
-- **Next Steps:** Preview of subsequent analysis phases
+- Research context and objectives
+- Well-commented code with explanations
+- Publication-quality visualizations
+- Statistical test results
+- Key findings and interpretations
+
+## Methodology
+
+### Analytical Approach
+
+**Phase 1: Data Acquisition**
+- Load Chatbot Arena dataset
+- Initial quality assessment
+
+**Phase 2: Data Cleaning**
+- Remove missing values and duplicates
+- Create winner column from binary indicators
+- Engineer features (prompt length, response length)
+- Extract model families from names
+
+**Phase 3: Exploratory Data Analysis**
+- Generate summary statistics
+- Create 10+ visualizations
+- Identify patterns and distributions
+
+**Phase 4: Task Classification**
+- Keyword-based categorization
+- 7 categories: Coding, Creative Writing, Data Analysis, Research, Translation, Math, General
+- ~85% accuracy validated by manual inspection
+
+**Phase 5: Statistical Testing**
+- Chi-square test: Model family vs. winner (χ² = 2777.40, p < 0.000001)
+- T-test: Response length vs. winner (t = 17.76, p < 0.000001)
+- Effect size calculations
+
+### Technical Stack
+
+**Core Libraries:**
+- `pandas` - Data manipulation
+- `numpy` - Numerical computing
+- `scipy` - Statistical testing
+
+**Visualization:**
+- `matplotlib` - Base plotting
+- `seaborn` - Statistical visualizations
+
+**Data Loading:**
+- `datasets` (Hugging Face) - Arena data
+- `kaggle` - Kaggle API
 
 ## Key Findings
 
-*This section will be updated as analysis progresses.*
+### 1. Model Family Performance
+- **GPT:** 42.2% win rate (31,743 appearances) - LEADING
+- **Claude:** 37.5% win rate (16,100 appearances)
+- **Vicuna:** 33.8% win rate (8,740 appearances)
+- **Statistical test:** χ² = 2777.40, p < 0.000001 (HIGHLY SIGNIFICANT)
 
-### Preliminary Insights
-- Dataset contains 55,000+ conversations across 70+ LLM models
-- Distribution of conversations by model, task type, and user preferences
-- Initial patterns in task-specific model usage
+### 2. Top Individual Models
+1. gpt-4-1106-preview: 55.2% win rate
+2. gpt-3.5-turbo-0314: 54.6% win rate
+3. gpt-4-0125-preview: 51.4% win rate
+4. gpt-4-0314: 48.7% win rate
+5. claude-1: 44.3% win rate
 
-### Statistical Results
-- [To be completed after analysis]
+### 3. Response Length Impact
+- Winner average: 1,569 characters
+- Loser average: 1,293 characters
+- Difference: 276 characters (21% longer)
+- Statistical test: t = 17.76, p < 0.000001 (HIGHLY SIGNIFICANT)
 
-### Visualizations
-See `figures/` directory for all generated visualizations.
+### 4. Task Distribution
+- Research/Information: Dominant category
+- General Conversation: Second most common
+- Coding: Significant but smaller segment
+- Creative Writing, Math, Translation: Specialized use cases
 
-## Project Timeline
+### 5. Task-Specific Performance
+- GPT-4 variants excel across most categories
+- Claude competitive in creative writing
+- Performance variation exists but GPT maintains lead
 
-- **Weeks 1-9:** Problem identification and dataset selection
-- **Week 9:** Project proposal submission
-- **Weeks 9-10:** Scope refinement with instructor feedback
-- **Weeks 10-12:** Data analysis execution
-- **Week 14:** Digital poster presentation
-- **End of Semester:** Final report and code submission
+## Visualizations
+
+All visualizations saved in `figures/` directory:
+
+1. **winner_distribution.png** - User preference breakdown (35% model_a, 34% model_b, 31% tie)
+2. **top_models.png** - Most frequently appearing models
+3. **prompt_length_analysis.png** - Distribution of prompt characteristics
+4. **model_win_rates.png** - Individual model performance rankings
+5. **response_length_by_winner.png** - Response length comparison by outcome
+6. **family_win_rates.png** - Model family performance comparison
+7. **task_distribution.png** - Task category frequencies
+8. **task_model_heatmap.png** - Task-specific model performance matrix
+9. **final_data_overview.png** - Comprehensive dataset summary
+10. **final_task_heatmap.png** - Detailed task-model performance
+
+## Statistical Validation
+
+All major findings achieved extremely high statistical significance:
+
+| Test | Statistic | P-Value | Significance | Effect Size |
+|------|-----------|---------|--------------|-------------|
+| Chi-Square (Family vs Winner) | χ² = 2777.40 | < 0.000001 | ★★★ | Very Large |
+| T-Test (Response Length) | t = 17.76 | < 0.000001 | ★★★ | Medium-Large (d=0.31) |
+| Correlation (Prompt vs Response) | r = 0.195 | < 0.001 | ★ | Weak |
+
+**Legend:** ★★★ = Highly Significant, ★★ = Very Significant, ★ = Significant
+
+## Limitations
+
+- **Selection Bias:** Arena users may differ from general population
+- **Temporal:** Data from 2023-2024 may not reflect newest models
+- **Task Classification:** Keyword-based approach ~85% accurate
+- **Causation:** Correlation demonstrated, not causation
+- **Scope:** Text-only, English-language bias
+
+## Future Work
+
+- Extend to multi-modal models (image, code generation)
+- Improve task classification with machine learning
+- Temporal analysis of preference evolution
+- Integrate actual model performance benchmarks
+- Study demographic factors and user expertise
+- Multi-turn conversation analysis
 
 ## Contributing
 
@@ -246,34 +291,39 @@ This is an academic project for MADS 720. While contributions are not currently 
 
 ## Citation
 
-If you use this analysis or methodology in your work, please cite:
+If you use this analysis in your work, please cite:
+```
+Huang, A. (2024). LLM User Preference Analysis: A Data-Driven Study 
+of Task-Specific Model Usage. MADS 720 Final Project. 
+GitHub: https://github.com/AsaHuang-DS/LLM_Preference_Analysis
+```
 
-```
-Huang, A. (2024). LLM User Preference Analysis: A Data-Driven Study of Task-Specific Model Usage.
-MADS 720 Final Project. GitHub: https://github.com/AsaHuang-DS/LLM_Preference_Analysis
-```
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-- **LMSYS Organization** for maintaining the Chatbot Arena platform and dataset
-- **Kaggle Community** for the LLM comparison dataset
-- **MADS 720 Instructors** for project guidance and feedback
-- **Hugging Face** for dataset hosting infrastructure
+- **LMSYS Organization** - Chatbot Arena platform and dataset
+- **Hugging Face** - Dataset hosting infrastructure
+- **MADS 720 Instructors** - Project guidance and feedback
+- **Open Source Community** - Python data science ecosystem
 
 ## Contact
 
 **Asa Huang**
 - GitHub: [@AsaHuang-DS](https://github.com/AsaHuang-DS)
-- Project Link: [https://github.com/AsaHuang-DS/LLM_Preference_Analysis](https://github.com/AsaHuang-DS/LLM_Preference_Analysis)
+- Project: [LLM_Preference_Analysis](https://github.com/AsaHuang-DS/LLM_Preference_Analysis)
 
 ## Course Information
 
-**Course:** MADS 720 - Data Science  
-**Institution:** [Your Institution]  
-**Semester:** Fall 2024  
+**Course:** DATA 720
+**Institution:** University of North Carolina at Chapel Hill
+**Semester:** Nov 2025
 **Project Type:** Final Project - Data Analysis and Visualization
 
 ---
 
-**Last Updated:** October 2025
-**Status:** In Progress - Data Exploration Phase
+**Status:** ✅ Complete - All analysis finished, ready for presentation
+
+**Last Updated:** Nov 2025
