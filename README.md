@@ -287,20 +287,16 @@ All major findings achieved extremely high statistical significance:
 
 ## Contributing
 
-This is an academic project for MADS 720. While contributions are not currently accepted, feedback and suggestions are welcome via issues.
+This is an academic project for DATA 720. While contributions are not currently accepted, feedback and suggestions are welcome via issues.
 
 ## Citation
 
 If you use this analysis in your work, please cite:
 ```
-Huang, A. (2024). LLM User Preference Analysis: A Data-Driven Study 
-of Task-Specific Model Usage. MADS 720 Final Project. 
+Huang, A. (2025). LLM User Preference Analysis: A Data-Driven Study 
+of Task-Specific Model Usage. DATA 720 Final Project. 
 GitHub: https://github.com/AsaHuang-DS/LLM_Preference_Analysis
 ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
