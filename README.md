@@ -7,7 +7,7 @@
 
 This project conducts a comprehensive analysis of user preferences across Large Language Models (LLMs) using 57,351 real-world conversations spanning 70+ state-of-the-art language models. By integrating statistical testing and data visualization, this study identifies task-specific usage patterns and explores relationships between model characteristics and user satisfaction.
 
-**Key Finding:** GPT models lead with a 42.2% win rate, significantly outperforming other families (χ² = 2777.40, p < 0.000001). Winning responses are 21% longer on average, indicating users prefer comprehensive, detailed answers.
+**Key Finding:** GPT models lead with a 42.2% win rate, significantly outperforming other families (x^2 = 2777.40, p < 0.000001). Winning responses are 21% longer on average, indicating users prefer comprehensive, detailed answers.
 
 ## Project Description
 
