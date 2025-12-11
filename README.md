@@ -215,7 +215,7 @@ Each notebook includes:
 - **GPT:** 42.2% win rate (31,743 appearances) - LEADING
 - **Claude:** 37.5% win rate (16,100 appearances)
 - **Vicuna:** 33.8% win rate (8,740 appearances)
-- **Statistical test:** χ² = 2777.40, p < 0.000001 (HIGHLY SIGNIFICANT)
+- **Statistical test:** x^2 = 2777.40, p < 0.000001 (HIGHLY SIGNIFICANT)
 
 ### 2. Top Individual Models
 1. gpt-4-1106-preview: 55.2% win rate
@@ -262,7 +262,7 @@ All major findings achieved extremely high statistical significance:
 
 | Test | Statistic | P-Value | Significance | Effect Size |
 |------|-----------|---------|--------------|-------------|
-| Chi-Square (Family vs Winner) | χ² = 2777.40 | < 0.000001 | ★★★ | Very Large |
+| Chi-Square (Family vs Winner) | x^2 = 2777.40 | < 0.000001 | ★★★ | Very Large |
 | T-Test (Response Length) | t = 17.76 | < 0.000001 | ★★★ | Medium-Large (d=0.31) |
 | Correlation (Prompt vs Response) | r = 0.195 | < 0.001 | ★ | Weak |
 
